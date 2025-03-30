@@ -16,6 +16,11 @@ jobs:
           npm install
           npm run build
 
+      - name: Cleanup Git
+        run: |
+          git worktree prune
+          rm -rf .git/worktrees/
+    
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
